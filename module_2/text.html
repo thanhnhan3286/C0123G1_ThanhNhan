@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1111</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Nhập số lượng phần tử trong mảng số nguyên:");
+    let arr = [];
+    for (let i = 0; i < a; i++) {
+        arr[i] = +prompt("Nhập phần tử thứ " + (i + 1));
+    }
+    document.write("Mảng đã nhập: " + arr + "<br>");
+    let n = +prompt("Nhập số nguyên n");
+    document.write("Số nguyên n là " + n + "<br>");
+    let arr1 = [];
+    for (let i = 0; i < a; i++) {
+        if (arr[i] % n === 0) {
+            arr1.push(arr[i]);
+        }
+    }
+    for (let i = 0; i < arr1.length; i++) {
+        for (let j = i + 1; j < arr1.length; j++) {
+            if (arr1[i] === arr1[j]) {
+                arr1.splice(i, 1);
+                i--;
+            }
+        }
+    }
+    document.write("Số lượng phần tử khác nhau trong mảng chia hết cho " + n + " là " + arr1.length + "<br>");
+    document.write("Các phần tử đó là " + arr1);
+</script>
+</body>
+</html>
