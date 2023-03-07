@@ -1,41 +1,43 @@
-package Introduction_to_Java.bai_tap;
+package ss1_Introduction_to_Java.bai_tap;
 
 import java.util.Scanner;
 
 public class UngDungDocSoThanhChu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        boolean flag;
-         do{
+        do {
             System.out.print("Nhập số từ 0 -> 999: ");
             int so = Integer.parseInt(sc.nextLine());
             if (so > 0) {
                 if (so > 19) {
                     if (so > 100) {
                         if (so > 1000) {
-                            System.out.print("Số vừa nhập lớn hơn 999"+'\n');
+                            System.out.print("Số vừa nhập lớn hơn 999" + '\n');
                         } else {
                             int a = so / 100;
                             int b = (so % 100);
                             int c = (so % 100) % 10;
                             if (b > 0) {
-                                System.out.print(donVi(a) + " hundered and " + chuc(b) + donVi(c) +'\n');
+                                System.out.print(donVi(a) + " hundered and " + chuc(b) + donVi(c) + '\n');
                             } else {
-                                System.out.print(donVi(a) + " hundered " + chuc(b) + donVi(c)+'\n');
+                                System.out.print(donVi(a) + " hundered " + chuc(b) + donVi(c) + '\n');
                             }
                         }
                     } else {
                         int b = so % 10;
-                        System.out.print(chuc(so) + donVi(b)+'\n');
+                        System.out.print(chuc(so) + donVi(b) + '\n');
                     }
                 } else {
-                    System.out.print(donVi(so)+'\n');
+                    System.out.print(donVi(so) + '\n');
                 }
+            } else if (so == 0) {
+                System.out.println("Zero");
+
             } else {
-                System.out.print("Số không thỏa mãn"+'\n');
+                System.out.print("Số không thỏa mãn" + '\n');
             }
 //            flag = true;
-        }while (1>0);
+        } while (1 > 0);
     }
 
 
