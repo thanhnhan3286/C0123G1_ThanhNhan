@@ -36,7 +36,6 @@ public class UngDungDocSoThanhChu {
             } else {
                 System.out.print("Số không thỏa mãn" + '\n');
             }
-//            flag = true;
         } while (1 > 0);
     }
 
