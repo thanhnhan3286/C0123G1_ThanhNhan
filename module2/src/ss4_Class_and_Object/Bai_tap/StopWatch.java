@@ -1,48 +1,55 @@
-package ss4_Class_and_Object.Bai_tap;
+package ss4_Class_and_Object.Thuc_hanh;
 
-public class StopWatch {
-    long startTime = 0;
-    long endTime = 0;
-    boolean running = true;
+import java.util.Scanner;
 
-    public long getStartTime() {
+public class stopwatch {
+    long startTime, endTime;
+
+    public stopwatch() {
+    }
+
+    private long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(int startTime) {
-        this.startTime = startTime;
-    }
-
-    public long getEndTime() {
+    private long getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(int endTime) {
-        this.endTime = endTime;
+    public long start() {
+        startTime = System.currentTimeMillis();
+        return startTime;
     }
 
-    public void start() {
-        this.startTime = System.currentTimeMillis();
-        this.running = true;
-    }
-
-    public void stop() {
-        this.endTime = System.currentTimeMillis();
-        this.running = false;
+    public long stop() {
+        endTime = System.currentTimeMillis();
+        return endTime;
     }
 
     public long getElapsedTime() {
-        long elapsed;
-        if (running) {
-            elapsed = (System.currentTimeMillis() - startTime);
-        } else {
-            elapsed = (endTime - startTime);
-        }
-        return elapsed;
+        long elaspedTime = endTime - startTime;
+        return elaspedTime;
     }
 
     public static void main(String[] args) {
-        StopWatch stopWatch = new StopWatch();
-        System.out.println(stopWatch.getElapsedTime());
+        Scanner sc = new Scanner(System.in);
+        stopwatch stopwatch = new stopwatch();
+        int c = 0;
+        do {
+            System.out.println("Nhập 1 để bắt đầu: ");
+            c = sc.nextInt();
+            if (c == 1) {
+                stopwatch.start();
+            }
+        } while (c != 1);
+        int d = 1;
+        do {
+            System.out.println("Nhập 0 để kết thúc: ");
+            d = sc.nextInt();
+            if (d == 0) {
+                stopwatch.stop();
+            }
+        } while (d != 0);
+        System.out.println("Đếm được số milisecond giây: " + stopwatch.getElapsedTime() + "s");
     }
 }
