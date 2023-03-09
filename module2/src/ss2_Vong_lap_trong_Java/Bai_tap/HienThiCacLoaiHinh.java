@@ -17,13 +17,13 @@ public class HienThiCacLoaiHinh {
             int choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    retangle();
+                    drawRectangle();
                     break;
                 case 2:
-                    squareTriangle();
+                    drawSquareTriangle();
                     break;
                 case 3:
-                    isoscelesTriangle();
+                    drawIsoscelesTriangle();
                     break;
                 default:
                     flag = false;
@@ -32,7 +32,7 @@ public class HienThiCacLoaiHinh {
         } while (flag);
     }
 
-    public static void retangle() {
+    public static void drawRectangle() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập chiều rộng: ");
         int n = sc.nextInt();
@@ -49,7 +49,7 @@ public class HienThiCacLoaiHinh {
         }
     }
 
-    public static void squareTriangle() {
+    public static void drawSquareTriangle() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập độ cao: ");
         int n = sc.nextInt();
@@ -68,7 +68,7 @@ public class HienThiCacLoaiHinh {
         }
     }
 
-    public static void isoscelesTriangle() {
+    public static void drawIsoscelesTriangle() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhập độ cao: ");
         int n = sc.nextInt();
