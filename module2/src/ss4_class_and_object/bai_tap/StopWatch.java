@@ -1,11 +1,11 @@
-package ss4_Class_and_Object.Thuc_hanh;
+package ss4_class_and_object.bai_tap;
 
 import java.util.Scanner;
 
-public class stopwatch {
+public class StopWatch {
     long startTime, endTime;
 
-    public stopwatch() {
+    public StopWatch() {
     }
 
     private long getStartTime() {
@@ -33,7 +33,7 @@ public class stopwatch {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        stopwatch stopwatch = new stopwatch();
+        StopWatch stopwatch = new StopWatch();
         int c = 0;
         do {
             System.out.println("Nhập 1 để bắt đầu: ");

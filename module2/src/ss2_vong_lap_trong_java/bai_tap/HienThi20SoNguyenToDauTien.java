@@ -1,4 +1,4 @@
-package ss2_Vong_lap_trong_Java.Bai_tap;
+package ss2_vong_lap_trong_java.bai_tap;
 
 public class HienThi20SoNguyenToDauTien {
     public static void main(String[] args) {

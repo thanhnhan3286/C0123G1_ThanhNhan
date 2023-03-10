@@ -1,6 +1,5 @@
-package ss3_Mang_va_phuong_thuc_trong_JAVA.Bai_tap;
+package ss3_mang_va_phuong_thuc_trong_java.bai_tap;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class TimPhanTuLonNhatTrongMang2Chieu {
