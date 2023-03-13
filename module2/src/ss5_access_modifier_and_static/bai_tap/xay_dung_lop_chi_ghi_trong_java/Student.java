@@ -20,13 +20,6 @@ public class Student {
         this.classe = classe;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getClasse() {
-        return classe;
-    }
 
     public String display() {
         return "Tên học sinh: " + this.name + "\nLớp: " + this.classe;
