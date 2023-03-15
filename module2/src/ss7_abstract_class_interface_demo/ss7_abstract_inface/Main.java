@@ -14,20 +14,20 @@ public class Main {
 //        System.out.println(p instanceof Student);
 //        // ép kiểu tường mình
 //        ((Student)p).study();
-//        Student s = (Student)p;
-//        s.study();
-        // ứng dụng để có thể lưu được các kiểu dữ liệu con trong mảng có kiểu dữ liệu cha
-        Employee[] employees = new Employee[3];
-        employees[0] = new Instructor();
-        employees[1] = new Ministry();
-        employees[2] = new Seller();
-
-        for (Employee e : employees) {
-            if (e instanceof Instructor) {
-                ((Instructor) e).teach();
-            }
-
-        }
-
+////        Student s = (Student)p;
+////        s.study();
+//        // ứng dụng để có thể lưu được các kiểu dữ liệu con trong mảng có kiểu dữ liệu cha
+//        Employee[] employees = new Employee[3];
+//        employees[0] = new Instructor();
+//        employees[1] = new Ministry();
+//        employees[2] = new Seller();
+//
+//        for (Employee e : employees) {
+//            if (e instanceof Instructor) {
+//                ((Instructor) e).teach();
+//            }
+//
+//        }
+//
     }
 }
