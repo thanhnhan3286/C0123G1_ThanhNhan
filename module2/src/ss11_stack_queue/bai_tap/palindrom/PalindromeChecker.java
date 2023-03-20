@@ -19,7 +19,7 @@ public class PalindromeChecker {
     }
 
     public static void main(String[] args) {
-        String str1 = "RacEcar";
+        String str1 = "n ha a h n";
         String str2 = "hellEH";
 
         if (isPalindrome(str1)) {

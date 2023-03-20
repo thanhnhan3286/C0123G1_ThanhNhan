@@ -1,6 +1,6 @@
 package ss7_abstract_inface;
 
-public  abstract class Person {
+public abstract class Person {
     protected int id;
     protected String name;
 
