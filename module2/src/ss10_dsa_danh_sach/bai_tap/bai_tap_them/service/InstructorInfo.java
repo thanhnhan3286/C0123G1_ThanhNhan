@@ -15,13 +15,22 @@ Scanner sc = new Scanner(System.in);
     @Override
     public void add() {
         System.out.println("Nhập id:");
-        int id = Integer.parseInt(sc.nextLine());
-        for(int i = 0;i<instructors.size();i++){
-            if(id == instructors.get(i).getId()){
-                System.out.println("ID đã tồn tại");
-                return;
+        int id;
+        boolean flag = true;
+        do {
+            int count = 0;
+            id = Integer.parseInt(sc.nextLine());
+            for (int i = 0; i < instructors.size(); i++) {
+                if (id == instructors.get(i).getId()) {
+                    count ++;
+                }
             }
-        }
+            if(count == 0) {
+                flag = false;
+            }else {
+                System.out.println("ID đã tồn tại, hãy nhập lại");
+            }
+        }while (flag);
         System.out.println("Nhập tên: ");
         String name = sc.nextLine();
         System.out.println("Nhập ngày sinh: ");
