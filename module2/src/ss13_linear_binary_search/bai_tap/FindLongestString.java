@@ -11,19 +11,19 @@ public class FindLongestString {
         findLongestString(string);
     }
     public static void findLongestString(String string){
-        LinkedList<Character> listmax = new LinkedList<>();
+        LinkedList<Character> listMax = new LinkedList<>();
         LinkedList<Character> list = new LinkedList<>();
         for (int i = 0; i < string.length(); i++) {
             if (list.size() > 1 && string.charAt(i) <= list.getLast() && list.contains(string.charAt(i))) {
                 list.clear();
             }
             list.add(string.charAt(i));
-            if (list.size() > listmax.size()) {
-                listmax.clear();
-                listmax.addAll(list);
+            if (list.size() > listMax.size()) {
+                listMax.clear();
+                listMax.addAll(list);
             }
         }
-        for (Character ch : listmax) {
+        for (Character ch : listMax) {
             System.out.print(ch);
         }
     }
