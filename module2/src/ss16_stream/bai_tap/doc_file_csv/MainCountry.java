@@ -9,7 +9,7 @@ public class MainCountry {
         String linkFile = "src/ss16_stream/bai_tap/doc_file_csv/Countres.csv";
         List<Country> countries = readFile.readFile(linkFile);
         for (Country c:countries) {
-            System.out.println(c);
+            System.out.println(c.getInfoToCsv());
         }
     }
 }
