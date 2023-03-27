@@ -14,7 +14,7 @@ public class FuramaController {
                     "\n4. Booking Management" +
                     "\n5. Promotion Management" +
                     "\n6. Exit" +
-                    "\nChọn chức năng bằng cách nhấn nhấn số từ 1->6 rôồi nhấn Enter");
+                    "\nChọn chức năng bằng cách nhấn nhấn số từ 1->6 rồi nhấn Enter");
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose){
                 case 1:

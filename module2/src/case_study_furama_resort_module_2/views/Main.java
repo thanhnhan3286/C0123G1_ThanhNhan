@@ -1,4 +1,4 @@
-package case_study_furama_resort_module_2.view;
+package case_study_furama_resort_module_2.views;
 
 import static case_study_furama_resort_module_2.controllers.FuramaController.displayMainMenu;
 
