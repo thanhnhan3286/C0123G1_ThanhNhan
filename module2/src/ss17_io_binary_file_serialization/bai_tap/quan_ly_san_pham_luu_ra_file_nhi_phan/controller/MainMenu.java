@@ -1,11 +1,16 @@
 package ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_nhi_phan.controller;
 
 import ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_nhi_phan.service.ProductService;
+import ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_nhi_phan.util.ReadAndWrite;
 
 import java.util.Scanner;
 
 public class MainMenu {
     static ProductService productService = new ProductService();
+    static {
+        productService.setProductsList(ReadAndWrite.readFileBinary("src\\ss17_io_binary_file_serialization\\" +
+                "bai_tap\\quan_ly_san_pham_luu_ra_file_nhi_phan\\data\\product.dat"));
+    }
 
     public static void displayMenu() {
         Scanner sc = new Scanner(System.in);

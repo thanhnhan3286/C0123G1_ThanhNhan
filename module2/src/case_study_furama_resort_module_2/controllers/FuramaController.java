@@ -27,14 +27,19 @@ public class FuramaController {
                     int choose1 = Integer.parseInt(sc.nextLine());
                     switch (choose1){
                         case 1:
+
                             break;
                         case 2:
+
                             break;
                         case 3:
+
                             break;
                         case 4:
                             flag1 = false;
                             break;
+                        default:
+                            System.out.println("Chọn lại");
                     }}while (flag1);
                     break;
                 case 2:
@@ -47,14 +52,19 @@ public class FuramaController {
                     int choose2 = Integer.parseInt(sc.nextLine());
                     switch (choose2){
                         case 1:
+
                             break;
                         case 2:
+
                             break;
                         case 3:
+
                             break;
                         case 4:
                             flag2 = false;
                             break;
+                        default:
+                            System.out.println("Chọn lại");
                     }}while (flag2);
                     break;
                 case 3:
@@ -67,14 +77,19 @@ public class FuramaController {
                     int choose3 = Integer.parseInt(sc.nextLine());
                     switch (choose3){
                         case 1:
+
                             break;
                         case 2:
+
                             break;
                         case 3:
+
                             break;
                         case 4:
                             flag3 = false;
                             break;
+                        default:
+                            System.out.println("Chọn lại");
                     }}while (flag3);
                     break;
                 case 4:
@@ -89,18 +104,25 @@ public class FuramaController {
                     int choose4 = Integer.parseInt(sc.nextLine());
                     switch (choose4){
                         case 1:
+
                             break;
                         case 2:
+
                             break;
                         case 3:
+
                             break;
                         case 4:
+
                             break;
                         case 5:
+
                             break;
                         case 6:
                             flag4 = false;
                             break;
+                        default:
+                            System.out.println("Chọn lại");
                     }}while (flag4);
                     break;
                 case 5:
@@ -112,12 +134,17 @@ public class FuramaController {
                     int choose5 = Integer.parseInt(sc.nextLine());
                     switch (choose5){
                         case 1:
+
                             break;
                         case 2:
+
                             break;
                         case 3:
+
                             flag5 = false;
                             break;
+                        default:
+                            System.out.println("Chọn lại");
                     }}while (flag5);
                     break;
                 case 6:

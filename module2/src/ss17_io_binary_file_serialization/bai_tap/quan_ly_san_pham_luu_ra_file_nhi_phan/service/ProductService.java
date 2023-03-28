@@ -10,8 +10,11 @@ import java.util.Scanner;
 public class ProductService implements IProductService {
     static Scanner sc = new Scanner(System.in);
     static ProductRepo productRepo = new ProductRepo();
-    static Product product = new Product();
     static List<Product> productsList = new ArrayList<>();
+    static Product product = new Product();
+    public static void setProductsList(List<Product> productsLists) {
+        productsList = productsLists;
+    }
 
     @Override
     public void add() {
@@ -27,7 +30,8 @@ public class ProductService implements IProductService {
         System.out.print("Nhập mô tả sản phẩm: ");
         String describe = sc.nextLine();
         product = new Product(id, name, price, manufacturer, describe);
-        productRepo.add(product);
+        productsList.add(product);
+        productRepo.add(productsList);
     }
 
     @Override

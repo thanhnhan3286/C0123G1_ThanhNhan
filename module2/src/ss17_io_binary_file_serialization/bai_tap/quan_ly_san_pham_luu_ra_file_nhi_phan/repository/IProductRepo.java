@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IProductRepo {
     List<Product> getAll();
-    void add(Product product);
+    void add(List<Product> productList);
     void search(int id);
 }
