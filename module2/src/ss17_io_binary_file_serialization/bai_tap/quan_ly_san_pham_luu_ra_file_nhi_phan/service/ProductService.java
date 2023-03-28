@@ -3,13 +3,15 @@ package ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_n
 import ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_nhi_phan.model.Product;
 import ss17_io_binary_file_serialization.bai_tap.quan_ly_san_pham_luu_ra_file_nhi_phan.repository.ProductRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
     static Scanner sc = new Scanner(System.in);
-    ProductRepo productRepo = new ProductRepo();
+    static ProductRepo productRepo = new ProductRepo();
     static Product product = new Product();
+    static List<Product> productsList = new ArrayList<>();
 
     @Override
     public void add() {
@@ -30,7 +32,7 @@ public class ProductService implements IProductService {
 
     @Override
     public void display() {
-        List<Product> productsList = productRepo.getAll();
+        productsList = productRepo.getAll();
         for (Product p : productsList) {
             System.out.println(p);
         }
