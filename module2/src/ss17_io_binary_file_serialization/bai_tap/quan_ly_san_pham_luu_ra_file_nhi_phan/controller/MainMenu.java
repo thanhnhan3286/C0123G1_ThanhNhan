@@ -33,6 +33,7 @@ public class MainMenu {
                     productService.search();
                     break;
                 case "4":
+                    productService.save();
                     flag = false;
                     break;
                 default:

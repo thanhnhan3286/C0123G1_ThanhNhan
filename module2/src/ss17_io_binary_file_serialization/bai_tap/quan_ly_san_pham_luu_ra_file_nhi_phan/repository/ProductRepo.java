@@ -16,7 +16,7 @@ public class ProductRepo implements IProductRepo {
 
     @Override
     public void add(List<Product> productList) {
-        ReadAndWrite.writeListProductToFileDat(PATH, productList);
+
     }
 
     @Override
@@ -31,5 +31,8 @@ public class ProductRepo implements IProductRepo {
         if (flag) {
             System.out.println("Không tìm thấy");
         }
+    }
+    public void save(List<Product> productList){
+        ReadAndWrite.writeListProductToFileDat(PATH, productList);
     }
 }

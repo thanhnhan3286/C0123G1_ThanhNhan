@@ -6,4 +6,5 @@ public interface IProductService {
     void add();
     void display();
     void search();
+    void save();
 }

@@ -8,4 +8,5 @@ public interface IProductRepo {
     List<Product> getAll();
     void add(List<Product> productList);
     void search(int id);
+    void save(List<Product> productList);
 }

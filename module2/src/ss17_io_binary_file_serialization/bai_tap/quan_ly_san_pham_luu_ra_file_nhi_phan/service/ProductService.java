@@ -31,12 +31,10 @@ public class ProductService implements IProductService {
         String describe = sc.nextLine();
         product = new Product(id, name, price, manufacturer, describe);
         productsList.add(product);
-        productRepo.add(productsList);
     }
 
     @Override
     public void display() {
-        productsList = productRepo.getAll();
         for (Product p : productsList) {
             System.out.println(p);
         }
@@ -47,5 +45,8 @@ public class ProductService implements IProductService {
         System.out.print("Nhập id sản phẩm cần tìm: ");
         int id = Integer.parseInt(sc.nextLine());
         productRepo.search(id);
+    }
+    public void save(){
+        productRepo.save(productsList);
     }
 }
