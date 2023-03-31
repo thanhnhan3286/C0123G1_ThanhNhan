@@ -1,28 +1,19 @@
 package case_study_furama_resort_module_2.model.person;
 
 public class Employee extends Person {
-    private String employeeId;
     private String employeeLevel;
     private String position;
-    private double wage;
+    private String wage;
 
     public Employee() {
     }
 
-    public Employee(String fullName, String birthday, String gender, String numberOfIdCard, String numberPhone, String email, String employeeId, String level, String position, double wage) {
-        super(fullName, birthday, gender, numberOfIdCard, numberPhone, email);
-        this.employeeId = employeeId;
+    public Employee(String id, String fullName, String birthday, String gender, String numberOfIdCard, String numberPhone,
+                    String email, String level, String position, String wage) {
+        super(id, fullName, birthday, gender, numberOfIdCard, numberPhone, email);
         this.employeeLevel = level;
         this.position = position;
         this.wage = wage;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
     }
 
     public String getLevel() {
@@ -41,21 +32,33 @@ public class Employee extends Person {
         this.position = position;
     }
 
-    public double getWage() {
+    public String getWage() {
         return wage;
     }
 
-    public void setWage(double wage) {
+    public void setWage(String wage) {
         this.wage = wage;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeId='" + employeeId + '\'' +
-                ", level='" + employeeLevel + '\'' +
+        return "Employee{" + "employeeId='" + getId() + '\'' +
+                ", fullName='" + getFullName() + '\'' +
+                ", birthday='" + getBirthday() + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", numberOfIdCard='" + getNumberOfIdCard() + '\'' +
+                ", numberPhone='" + getNumberPhone() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", employeeLevel='" + employeeLevel + '\'' +
                 ", position='" + position + '\'' +
-                ", wage=" + wage +
+                ", wage='" + wage + '\'' +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return getId() +","+ getFullName()+","+
+                getBirthday()+","+getGender()+","+
+                getNumberOfIdCard()+","+getNumberPhone()+","+
+                getEmail()+","+employeeLevel+","+position+","+wage;
     }
 }

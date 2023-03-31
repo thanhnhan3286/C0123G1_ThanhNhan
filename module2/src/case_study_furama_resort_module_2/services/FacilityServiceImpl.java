@@ -21,4 +21,9 @@ public class FacilityServiceImpl implements IFacilityService{
 
     }
 
+    @Override
+    public void save() {
+
+    }
+
 }

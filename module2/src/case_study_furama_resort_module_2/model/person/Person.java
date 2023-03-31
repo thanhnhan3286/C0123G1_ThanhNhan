@@ -1,6 +1,7 @@
 package case_study_furama_resort_module_2.model.person;
 
 public abstract class Person {
+    private String id;
     private String fullName;
     private String birthday;
     private String gender;
@@ -11,13 +12,22 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String fullName, String birthday, String gender, String numberOfIdCard, String numberPhone, String email) {
+    public Person(String id, String fullName, String birthday, String gender, String numberOfIdCard, String numberPhone, String email) {
+        this.id = id;
         this.fullName = fullName;
         this.birthday = birthday;
         this.gender = gender;
         this.numberOfIdCard = numberOfIdCard;
         this.numberPhone = numberPhone;
         this.email = email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFullName() {
@@ -70,7 +80,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "People{" +
+        return "People{" + "id='" + id +'\''+
                 "fullName='" + fullName + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", gender='" + gender + '\'' +

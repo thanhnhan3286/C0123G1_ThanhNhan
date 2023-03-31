@@ -1,4 +1,4 @@
-package case_study_furama_resort_module_2.util;
+package case_study_furama_resort_module_2.util.read_and_write;
 
 import ss16_stream.bai_tap.doc_file_csv.Country;
 
@@ -28,5 +28,27 @@ public class ReadAndWrite {
             e.printStackTrace();
         }
         return countryList;
+    }
+    public static void writeFile(String pathFile, List<String> strList, boolean append) {
+        File file = new File(pathFile);
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
+        try {
+            fileWriter = new FileWriter(file, append);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            for (int i = 0; i < strList.size(); i++) {
+                bufferedWriter.write(strList.get(i));
+                bufferedWriter.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                bufferedWriter.close();
+                fileWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }
