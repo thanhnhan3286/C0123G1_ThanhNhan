@@ -15,51 +15,51 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void add() {
-        System.out.println("Thêm mới khách hàng: ");
+        System.out.println("ADD NEW CUSTOMER: ");
         boolean flag;
         String customerId;
-        System.out.print("Nhập mã khách hàng: ");
+        System.out.print("Enter the customer ID: ");
         do {
             flag = false;
             customerId = sc.nextLine();
             if (checkId(customerId)) {
                 flag = true;
-                System.out.println("ID đã tồn tại, mời nhập lại");
+                System.out.print("Customer ID is already in the system, please enter again here: ");
             }
         } while (flag);
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter the customer name: ");
         String fullName = sc.nextLine();
-        System.out.print("Nhập ngày sinh: ");
+        System.out.print("Enter the birthday: ");
         String birirthday = sc.nextLine();
         String gender = getGender();
-        System.out.print("Nhập số CMND: ");
+        System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
             numberOfIdCard = sc.nextLine();
             if (checkNumberOfIdCard(numberOfIdCard)) {
                 flag = true;
-                System.out.println("Số CMND đã tồn tại, mời nhập lại");
+                System.out.print("The identity card number is already in the system, please enter here again: ");
             }
         } while (flag);
-        System.out.print("Nhập số điện thoại: ");
+        System.out.print("Enter phone number: ");
         String numberPhone = sc.nextLine();
-        System.out.print("Nhập Email: ");
+        System.out.print("Enter Email: ");
         String email = sc.nextLine();
         String customerLevel = getCustomerLevel();
-        System.out.print("Nhập địa chỉ: ");
+        System.out.print("Enter address: ");
         String address = sc.nextLine();
         customer = new Customer(customerId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
                 email,customerLevel,address);
         customerList.add(customer);
         save();
-        System.out.println("Đã thêm thành công");
+        System.out.println("Added!!!");
     }
 
     @Override
     public void display() {
-        if (customerList.size() == 0) {
-            System.out.println("Danh sách rỗng");
+        if (customerList.size() <= 0) {
+            System.out.println("Empty list!!!");
         } else {
             for (Customer c : customerList) {
                 System.out.println(c);
@@ -69,18 +69,18 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void edit() {
-        System.out.println("Chỉnh sửa khách hàng: ");
+        System.out.println("EDIT CUSTOMER: ");
         boolean flag;
         String customerId;
-        System.out.print("Nhập mã khách hàng cần sửa: ");
+        System.out.print("Enter the customer ID need edit: ");
         do {
             flag = false;
             customerId = sc.nextLine();
             if (checkId(customerId)) {
                 flag = true;
-                System.out.println("ID có trong danh sách, mời sửa đổi");
+                System.out.println("Customer ID is already in the system, edit here: ");
             }else{
-                System.out.println("ID không tồn tại, mời nhập lại: ");
+                System.out.println("Customer ID is not already in the system, please enter here again: ");
             }
         } while (!flag);
         System.out.print("Nhập tên: ");
@@ -93,7 +93,7 @@ public class CustomerServiceImpl implements ICustomerService {
         do {
             flag = false;
             numberOfIdCard = sc.nextLine();
-            if (checkNumberOfIdCard1(numberOfIdCard)) {
+            if (checkNumberOfIdCardEdit(numberOfIdCard)) {
                 flag = true;
                 System.out.println("Số CMND đã tồn tại, mời nhập lại");
             }
@@ -205,7 +205,20 @@ public class CustomerServiceImpl implements ICustomerService {
             return false;
         }
     }
-    public static boolean checkNumberOfIdCard1(String id) {
+    public static boolean checkIdEdit(String id) {
+        int count = 0;
+        for (int i = 0; i < customerList.size(); i++) {
+            if (Objects.equals(customerList.get(i).getId(), id)) {
+                count++;
+            }
+        }
+        if (count >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static boolean checkNumberOfIdCardEdit(String id) {
         int count = 0;
         for (int i = 0; i < customerList.size(); i++) {
             if (Objects.equals(customerList.get(i).getNumberOfIdCard(), id)) {

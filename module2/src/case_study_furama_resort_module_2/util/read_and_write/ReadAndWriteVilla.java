@@ -1,49 +1,51 @@
 package case_study_furama_resort_module_2.util.read_and_write;
 
 import case_study_furama_resort_module_2.model.facility.Villa;
-import ss16_stream.bai_tap.doc_file_csv.Country;
+
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ReadAndWriteVilla {
-    private static final String PATH_FILE_VILLA = "src\\case_study_furama_resort_module_2\\data\\villa.csv";
-
-    public static List<Villa> readFile() {
-        List<Villa> villasList = new ArrayList<>();
-        File file = new File(PATH_FILE_VILLA);
+    public static Map<Villa, Integer> readFile(String pathFileVilla) {
+        Map<Villa, Integer> villaMap = new LinkedHashMap<>();
+        Villa villaList;
+        int typeOfUsed;
+        File file = new File(pathFileVilla);
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         String line = null;
         try {
-            fileReader = new FileReader(file);
-            bufferedReader = new BufferedReader(fileReader);
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] str = line.split(",");
-                villasList.add(new Villa(str[0], Double.parseDouble(str[1]), Double.parseDouble(str[2]),
-                        Integer.parseInt(str[3]), str[4], str[5], Double.parseDouble(str[6]),
-                        Integer.parseInt(str[7])));
+            if (file.length() > 0) {
+                fileReader = new FileReader(file);
+                bufferedReader = new BufferedReader(fileReader);
+                while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
+                    String[] str = line.split(",");
+                    villaList = new Villa(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7]);
+                    typeOfUsed = Integer.parseInt(str[8]);
+                    villaMap.put(villaList,typeOfUsed);
+                }
+                bufferedReader.close();
+                fileReader.close();
             }
-            bufferedReader.close();
-            fileReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return villasList;
+        return villaMap;
     }
 
-    public static void writeFile(List<String> strList, boolean append) {
-        File file = new File(PATH_FILE_VILLA);
+    public static void writeFile(String pathFileVilla, Map<Villa,Integer> villaMap) {
+        File file = new File(pathFileVilla);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
-            fileWriter = new FileWriter(file, append);
+            fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < strList.size(); i++) {
-                bufferedWriter.write(strList.get(i));
+            for (Map.Entry<Villa,Integer> entry:villaMap.entrySet()) {
+                bufferedWriter.write(entry.getKey().getInfoToCSV() + ","+entry.getValue());
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {
@@ -53,7 +55,7 @@ public class ReadAndWriteVilla {
                 bufferedWriter.close();
                 fileWriter.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }

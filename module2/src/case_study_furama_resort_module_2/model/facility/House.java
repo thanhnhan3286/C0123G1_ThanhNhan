@@ -1,15 +1,14 @@
 package case_study_furama_resort_module_2.model.facility;
 
-public class House extends Facility{
+public class House extends Facility {
     private String roomStandard;
-    private int numberOfFloors;
+    private String numberOfFloors;
 
     public House() {
     }
 
-    public House(String serviceName, double usableArea, double rentalCosts, int maximumPeople,
-                 String rentalType, String roomStandard, int numberOfFloors) {
-        super(serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
+    public House(String id, String serviceName, String usableArea, String rentalCosts, String maximumPeople, String rentalType, String roomStandard, String numberOfFloors) {
+        super(id, serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;
     }
@@ -22,19 +21,30 @@ public class House extends Facility{
         this.roomStandard = roomStandard;
     }
 
-    public int getNumberOfFloors() {
+    public String getNumberOfFloors() {
         return numberOfFloors;
     }
 
-    public void setNumberOfFloors(int numberOfFloors) {
+    public void setNumberOfFloors(String numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
-        return "House{" +
-                "roomStandard='" + roomStandard + '\'' +
+        return "House{" + "id='"+getId()+", serviceName='" + getServiceName() +
+                ", usableArea=" + getUsableArea() +
+                ", rentalCosts=" + getRentalCosts() +
+                ", maximumPeople=" + getMaximumPeople() +
+                ", rentalType='" + getRentalType() +
+                "roomStandard='" + roomStandard +
                 ", numberOfFloors=" + numberOfFloors +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return getId() + "," + getServiceName() + "," + getUsableArea() + "," +
+                getRentalCosts() + "," + getMaximumPeople() + "," +
+                getRentalType() + "," + getRoomStandard() + "," +
+                getNumberOfFloors();
     }
 }

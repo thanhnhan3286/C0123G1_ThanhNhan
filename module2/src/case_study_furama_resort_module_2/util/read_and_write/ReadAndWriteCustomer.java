@@ -4,11 +4,12 @@ import case_study_furama_resort_module_2.model.person.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ReadAndWriteCustomer {
     public static List<Customer> readFile(String pathFileCustomer){
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerList = new LinkedList<>();
         File file = new File(pathFileCustomer);
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;

@@ -1,6 +1,8 @@
 package case_study_furama_resort_module_2.controllers;
 
 import case_study_furama_resort_module_2.services.*;
+import case_study_furama_resort_module_2.services.facility_service.FacilityServiceImpl;
+import case_study_furama_resort_module_2.services.facility_service.IFacilityService;
 
 import java.util.Scanner;
 
@@ -16,14 +18,14 @@ public class FuramaController {
     public static void displayMainMenu() {
         boolean flag = true;
         do {
-            System.out.println("MENU:" +
+            System.out.print("MENU FURAMA MANAGEMENT:" +
                     "\n1. Employee Management" +
                     "\n2. Customer Management" +
                     "\n3. Facility Management" +
                     "\n4. Booking Management" +
                     "\n5. Promotion Management" +
-                    "\n6. Exit" +
-                    "\nChọn chức năng bằng cách nhấn nhấn số từ 1->6 rồi nhấn Enter");
+                    "\n0. Exit" +
+                    "\nEnter selection here: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -41,11 +43,11 @@ public class FuramaController {
                 case "5":
                     promotionManagement();
                     break;
-                case "6":
+                case "0":
                     flag = false;
                     break;
                 default:
-                    System.out.println("Mời nhập lại!!!");
+                    System.out.println("Please enter selection 0->5 at here!!!");
             }
         } while (flag);
     }
@@ -53,7 +55,8 @@ public class FuramaController {
     public static void employeeManagement() {
         boolean flag = true;
         do {
-            System.out.println("1\tDisplay list employees\n" +
+            System.out.println("Employee Management:\n" +
+                    "1\tDisplay list employees\n" +
                     "2\tAdd new employee\n" +
                     "3\tEdit employee`\n" +
                     "4\tReturn main menu");
@@ -73,7 +76,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Chọn lại");
+                    System.out.println("Please enter selection 1 -> 4 at here!!!");
             }
         } while (flag);
     }
@@ -81,7 +84,8 @@ public class FuramaController {
     public static void customerManagement() {
         boolean flag = true;
         do {
-            System.out.println("1.\tDisplay list customers\n" +
+            System.out.println("Customer Management:\n" +
+                    "1.\tDisplay list customers\n" +
                     "2.\tAdd new customer\n" +
                     "3.\tEdit customer\n" +
                     "4.\tReturn main menu\n");
@@ -101,7 +105,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Chọn lại");
+                    System.out.println("Please enter selection 1 -> 4 at here!!!");
             }
         } while (flag);
     }
@@ -109,7 +113,8 @@ public class FuramaController {
     public static void facilityManagement() {
         boolean flag = true;
         do {
-            System.out.println("1\tDisplay list facility\n" +
+            System.out.println("Facility Management: \n" +
+                    "1\tDisplay list facility\n" +
                     "2\tAdd new facility\n" +
                     "3\tDisplay list facility maintenance\n" +
                     "4\tReturn main menu\n");
@@ -129,7 +134,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Chọn lại");
+                    System.out.println("Please enter selection 1 -> 4 at here!!!");
             }
         } while (flag);
     }
@@ -137,7 +142,8 @@ public class FuramaController {
     public static void bookingManagement() {
         boolean flag = true;
         do {
-            System.out.println("1.\tAdd new booking\n" +
+            System.out.println("Booking Management:\n" +
+                    "1.\tAdd new booking\n" +
                     "2.\tDisplay list booking\n" +
                     "3.\tCreate new contract\n" +
                     "4.\tDisplay list contracts\n" +
@@ -166,7 +172,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Chọn lại");
+                    System.out.println("Please enter selection 1 -> 6 at here!!!");
             }
         } while (flag);
     }
@@ -174,7 +180,8 @@ public class FuramaController {
     public static void promotionManagement() {
         boolean flag = true;
         do {
-            System.out.println("1.\tDisplay list customers use service\n" +
+            System.out.println("Promotion Management:\n" +
+                    "1.\tDisplay list customers use service\n" +
                     "2.\tDisplay list customers get voucher\n" +
                     "3.\tReturn main menu\n");
             String choose = sc.nextLine();
@@ -189,7 +196,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Chọn lại");
+                    System.out.println("Please enter selection 1 -> 3 at here!!!");
             }
         } while (flag);
     }

@@ -1,21 +1,31 @@
 package case_study_furama_resort_module_2.model.facility;
 
 public abstract class Facility {
+    private String id;
     private String serviceName;
-    private double usableArea;
-    private double rentalCosts;
-    private int maximumPeople;
+    private String usableArea;
+    private String rentalCosts;
+    private String maximumPeople;
     private String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, double usableArea, double rentalCosts, int maximumPeople, String rentalType) {
+    public Facility(String id, String serviceName, String usableArea, String rentalCosts, String maximumPeople, String rentalType) {
+        this.id = id;
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
         this.maximumPeople = maximumPeople;
         this.rentalType = rentalType;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getServiceName() {
@@ -26,27 +36,27 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public double getUsableArea() {
+    public String getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(double usableArea) {
+    public void setUsableArea(String usableArea) {
         this.usableArea = usableArea;
     }
 
-    public double getRentalCosts() {
+    public String getRentalCosts() {
         return rentalCosts;
     }
 
-    public void setRentalCosts(double rentalCosts) {
+    public void setRentalCosts(String rentalCosts) {
         this.rentalCosts = rentalCosts;
     }
 
-    public int getMaximumPeople() {
+    public String getMaximumPeople() {
         return maximumPeople;
     }
 
-    public void setMaximumPeople(int maximumPeople) {
+    public void setMaximumPeople(String maximumPeople) {
         this.maximumPeople = maximumPeople;
     }
 
@@ -60,8 +70,8 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
+        return "Facility{" + "id='" + id + '\'' +
+                "serviceName='" + serviceName +
                 ", usableArea=" + usableArea +
                 ", rentalCosts=" + rentalCosts +
                 ", maximumPeople=" + maximumPeople +

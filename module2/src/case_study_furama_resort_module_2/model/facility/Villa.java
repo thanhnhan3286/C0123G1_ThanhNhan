@@ -1,19 +1,19 @@
 package case_study_furama_resort_module_2.model.facility;
 
-public class Villa extends Facility{
+import org.omg.CORBA.PUBLIC_MEMBER;
+
+public class Villa extends Facility {
     private String roomStandard;
-    private double swimmingPoolArea;
-    private int numberOfFloors;
+    private String swimmingPoolArea;
 
     public Villa() {
     }
 
-    public Villa(String serviceName, double usableArea, double rentalCosts, int maximumPeople, String rentalType,
-                 String roomStandard, double swimmingPoolArea, int numberOfFloors) {
-        super(serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
+    public Villa(String id, String serviceName, String usableArea, String rentalCosts, String maximumPeople, String rentalType,
+                 String roomStandard, String swimmingPoolArea) {
+        super(id, serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
         this.roomStandard = roomStandard;
         this.swimmingPoolArea = swimmingPoolArea;
-        this.numberOfFloors = numberOfFloors;
     }
 
     public String getRoomStandard() {
@@ -24,28 +24,31 @@ public class Villa extends Facility{
         this.roomStandard = roomStandard;
     }
 
-    public double getSwimmingPoolArea() {
+    public String getSwimmingPoolArea() {
         return swimmingPoolArea;
     }
 
-    public void setSwimmingPoolArea(double swimmingPoolArea) {
+    public void setSwimmingPoolArea(String swimmingPoolArea) {
         this.swimmingPoolArea = swimmingPoolArea;
-    }
-
-    public int getNumberOfFloors() {
-        return numberOfFloors;
-    }
-
-    public void setNumberOfFloors(int numberOfFloors) {
-        this.numberOfFloors = numberOfFloors;
     }
 
     @Override
     public String toString() {
-        return "Villa{" +
-                "roomStandard='" + roomStandard + '\'' +
+        return "Villa{" + "id=" + getId() +
+                ", serviceName='" + getServiceName() +
+                ", usableArea=" + getUsableArea() +
+                ", rentalCosts=" + getRentalCosts() +
+                ", maximumPeople=" + getMaximumPeople() +
+                ", rentalType='" + getRentalType() +
+                "roomStandard='" + roomStandard +
                 ", swimmingPoolArea=" + swimmingPoolArea +
-                ", numberOfFloors=" + numberOfFloors +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return getId() + "," + getServiceName() + "," + getUsableArea() + "," +
+                getRentalCosts() + "," + getMaximumPeople() + "," +
+                getRentalType() + "," + getRoomStandard() + "," +
+                getSwimmingPoolArea();
     }
 }

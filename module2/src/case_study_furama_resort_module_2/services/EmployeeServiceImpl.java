@@ -2,8 +2,8 @@ package case_study_furama_resort_module_2.services;
 
 import case_study_furama_resort_module_2.model.person.Employee;
 import case_study_furama_resort_module_2.repository.EmployeeRepo;
+import case_study_furama_resort_module_2.util.regex.Validate;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
@@ -19,21 +19,21 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Chọn giới tính: " +
-                    "\n1. Nam" +
-                    "\n2. Nữ" +
-                    "\n3. Khác" +
-                    "\nNhập lựa chọn");
+            System.out.print("Choose the gender: " +
+                    "\n1. Male" +
+                    "\n2. Female" +
+                    "\n3. Other" +
+                    "\nEnter choose: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
-                    gender = "Nam";
+                    gender = "Male";
                     break;
                 case "2":
-                    gender = "Nữ";
+                    gender = "Female";
                     break;
                 case "3":
-                    System.out.println("Nhập giới tính");
+                    System.out.print("Enter gender: ");
                     gender = sc.nextLine();
                     break;
                 default:
@@ -48,27 +48,27 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Chọn trình độ: " +
-                    "\n1. Trung cấp" +
-                    "\n2. Cao đẳng" +
-                    "\n3. Đại học" +
-                    "\n4. Sau đại học");
+            System.out.println("Choose customer lever: " +
+                    "\n1. Intermediate" +
+                    "\n2. College" +
+                    "\n3. University" +
+                    "\n4. After University");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
-                    level = "Trung cấp";
+                    level = "Intermediate";
                     break;
                 case "2":
-                    level = "Cao đẳng";
+                    level = "College";
                     break;
                 case "3":
-                    level = "Đại học";
+                    level = "University";
                     break;
                 case "4":
-                    level = "Sau đại học";
+                    level = "After University";
                     break;
                 default:
-                    System.out.println("Mời chọn lại");
+                    System.out.print("Please enter choose here again: ");
                     flag = true;
             }
         } while (flag);
@@ -128,6 +128,19 @@ public class EmployeeServiceImpl implements IEmployeeService {
             return false;
         }
     }
+    public static boolean checkIdEdit(String id) {
+        int count = 0;
+        for (int i = 0; i < employeeList.size(); i++) {
+            if (Objects.equals(employeeList.get(i).getId(), id)) {
+                count++;
+            }
+        }
+        if (count >= 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public static boolean checkNumberOfIdCard(String id) {
         int count = 0;
@@ -143,7 +156,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         }
     }
 
-    public static boolean checkNumberOfIdCard1(String id) {
+    public static boolean checkNumberOfIdCardEdit(String id) {
         int count = 0;
         for (int i = 0; i < employeeList.size(); i++) {
             if (Objects.equals(employeeList.get(i).getNumberOfIdCard(), id)) {
@@ -165,35 +178,35 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.print("Nhập mã nhân viên: ");
         do {
             flag = false;
-            employeeId = sc.nextLine();
+            employeeId = Validate.checkIdPerson();
             if (checkId(employeeId)) {
                 flag = true;
                 System.out.println("ID đã tồn tại, mời nhập lại");
             }
         } while (flag);
         System.out.print("Nhập tên: ");
-        String fullName = sc.nextLine();
+        String fullName = Validate.checkNamePerson();
         System.out.print("Nhập ngày sinh: ");
-        String birirthday = sc.nextLine();
+        String birirthday = Validate.checkBirthday();
         String gender = getGender();
         System.out.print("Nhập số CMND: ");
         String numberOfIdCard;
         do {
             flag = false;
-            numberOfIdCard = sc.nextLine();
+            numberOfIdCard = Validate.checkIdPerson();
             if (checkNumberOfIdCard(numberOfIdCard)) {
                 flag = true;
                 System.out.println("Số CMND đã tồn tại, mời nhập lại");
             }
         } while (flag);
         System.out.print("Nhập số điện thoại: ");
-        String numberPhone = sc.nextLine();
+        String numberPhone = Validate.checkPhoneNumber();
         System.out.print("Nhập Email: ");
         String email = sc.nextLine();
         String level = getLevel();
         String position = getPosition();
         System.out.print("Nhập lương: ");
-        String wage = sc.nextLine();
+        String wage = Validate.checkPositiveInteger();
         employee = new Employee(employeeId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
                 email, level, position, wage);
         employeeList.add(employee);
@@ -223,7 +236,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             employeeId = sc.nextLine();
             if (checkId(employeeId)) {
                 flag = true;
-                System.out.println("ID có trong danh sách, mời sửa đổi");
+                System.out.println("ID có trong danh sách, bắt đầu sửa đổi: ");
             } else {
                 System.out.println("ID không tồn tại, mời nhập lại:");
             }
@@ -238,7 +251,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         do {
             flag = false;
             numberOfIdCard = sc.nextLine();
-            if (checkNumberOfIdCard1(numberOfIdCard)) {
+            if (checkNumberOfIdCardEdit(numberOfIdCard)) {
                 flag = true;
                 System.out.println("Số CMND đã tồn tại, mời nhập lại");
             }
