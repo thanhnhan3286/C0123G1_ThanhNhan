@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     "\n1. Male" +
                     "\n2. Female" +
                     "\n3. Other" +
-                    "\nEnter choose: ");
+                    "\nEnter selection: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -37,6 +37,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     gender = sc.nextLine();
                     break;
                 default:
+                    System.out.print("Please enter selection 1->3 here again: ");
                     flag = true;
             }
         } while (flag);
@@ -48,7 +49,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Choose customer lever: " +
+            System.out.println("Choose employ lever: " +
                     "\n1. Intermediate" +
                     "\n2. College" +
                     "\n3. University" +
@@ -68,7 +69,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     level = "After University";
                     break;
                 default:
-                    System.out.print("Please enter choose here again: ");
+                    System.out.print("Please enter selection 1->4 here again: ");
                     flag = true;
             }
         } while (flag);
@@ -80,35 +81,35 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Chọn chức vụ: " +
-                    "\n1. Lễ tân" +
-                    "\n2. Phục vụ" +
-                    "\n3. Chuyên viên" +
-                    "\n4. Giám sát" +
-                    "\n5. Quản lý" +
-                    "\n6. Giám đốc");
+            System.out.println("Choose the job position: " +
+                    "\n1. Receptionist" +
+                    "\n2. Serve" +
+                    "\n3. Counselor" +
+                    "\n4. Monitor" +
+                    "\n5. Manager" +
+                    "\n6. Director");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
-                    position = "Lễ tân";
+                    position = "Receptionist";
                     break;
                 case "2":
-                    position = "Phục vụ";
+                    position = "Serve";
                     break;
                 case "3":
-                    position = "Chuyên viên";
+                    position = "Counselor";
                     break;
                 case "4":
-                    position = "Giám sát";
+                    position = "Monitor";
                     break;
                 case "5":
-                    position = "Quản lý";
+                    position = "Manager";
                     break;
                 case "6":
-                    position = "Giám đốc";
+                    position = "Director";
                     break;
                 default:
-                    System.out.println("Mời chọn lại");
+                    System.out.println("Please enter selection 1->6 here again!!!");
                     flag = true;
             }
         } while (flag);
@@ -172,53 +173,53 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void add() {
-        System.out.println("Thêm mới nhân viên: ");
+        System.out.println("ADD NEW EMPLOYEE: ");
         boolean flag;
         String employeeId;
-        System.out.print("Nhập mã nhân viên: ");
+        System.out.print("Enter employee ID: ");
         do {
             flag = false;
             employeeId = Validate.checkIdPerson();
             if (checkId(employeeId)) {
                 flag = true;
-                System.out.println("ID đã tồn tại, mời nhập lại");
+                System.out.println("Employee ID is already in the system, please enter again here: ");
             }
         } while (flag);
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter the employee name: ");
         String fullName = Validate.checkNamePerson();
-        System.out.print("Nhập ngày sinh: ");
+        System.out.print("Enter the birthday: ");
         String birirthday = Validate.checkBirthday();
         String gender = getGender();
-        System.out.print("Nhập số CMND: ");
+        System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
-            numberOfIdCard = Validate.checkIdPerson();
+            numberOfIdCard = Validate.checkIdCard();
             if (checkNumberOfIdCard(numberOfIdCard)) {
                 flag = true;
-                System.out.println("Số CMND đã tồn tại, mời nhập lại");
+                System.out.println("The identity card number is already in the system, please enter here again");
             }
         } while (flag);
-        System.out.print("Nhập số điện thoại: ");
+        System.out.print("Enter phone number: ");
         String numberPhone = Validate.checkPhoneNumber();
-        System.out.print("Nhập Email: ");
+        System.out.print("Enter Email: ");
         String email = sc.nextLine();
         String level = getLevel();
         String position = getPosition();
-        System.out.print("Nhập lương: ");
+        System.out.print("Enter the salary: ");
         String wage = Validate.checkPositiveInteger();
         employee = new Employee(employeeId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
                 email, level, position, wage);
         employeeList.add(employee);
         save();
-        System.out.println("Đã thêm thành công");
+        System.out.println("Added");
     }
 
 
     @Override
     public void display() {
         if (employeeList.size() == 0) {
-            System.out.println("Danh sách rỗng");
+            System.out.println("Empty list!!!");
         } else {
             for (Employee e : employeeList) {
                 System.out.println(e);
@@ -228,41 +229,42 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public void edit() {
+        System.out.println("EDIT EMPLOYEE: ");
         boolean flag;
         String employeeId;
-        System.out.print("Nhập mã nhân viên ần sửa đổi: ");
+        System.out.print("Enter the employee ID need edit: ");
         do {
             flag = false;
             employeeId = sc.nextLine();
             if (checkId(employeeId)) {
                 flag = true;
-                System.out.println("ID có trong danh sách, bắt đầu sửa đổi: ");
+                System.out.println("Employee ID is already in the system, edit here: ");
             } else {
-                System.out.println("ID không tồn tại, mời nhập lại:");
+                System.out.println("Employee ID is not already in the system, please enter here again: ");
             }
         } while (!flag);
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter the employee name: ");
         String fullName = sc.nextLine();
-        System.out.print("Nhập ngày sinh: ");
+        System.out.print("Enter the birthday: ");
         String birirthday = sc.nextLine();
         String gender = getGender();
-        System.out.print("Nhập số CMND: ");
+        System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
             numberOfIdCard = sc.nextLine();
             if (checkNumberOfIdCardEdit(numberOfIdCard)) {
                 flag = true;
-                System.out.println("Số CMND đã tồn tại, mời nhập lại");
+                System.out.println("The identity card number is already in the system, please enter here again");
             }
         } while (flag);
-        System.out.print("Nhập số điện thoại: ");
+        System.out.print("Enter phone number: ");
         String numberPhone = sc.nextLine();
-        System.out.print("Nhập Email: ");
+        System.out.print("Enter Email: ");
         String email = sc.nextLine();
         String level = getLevel();
         String position = getPosition();
-        System.out.print("Nhập lương: ");
+        System.out.print("Enter the salary: ");
         String wage = sc.nextLine();
         employee = new Employee(employeeId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
                 email, level, position, wage);
@@ -272,7 +274,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             }
         }
         save();
-        System.out.println("Đã sửa thành công");
+        System.out.println("Edited!!!");
     }
 
     @Override

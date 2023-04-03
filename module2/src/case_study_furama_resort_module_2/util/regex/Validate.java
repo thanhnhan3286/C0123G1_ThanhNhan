@@ -13,7 +13,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: SVVL-YYYY");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: SVVL-YYYY");
             }
         }while (flag);
         return id;
@@ -26,7 +26,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: SVHO-YYYY");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: SVHO-YYYY");
             }
         }while (flag);
         return id;
@@ -39,7 +39,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: SVRO-YYYY");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: SVRO-YYYY");
             }
         }while (flag);
         return id;
@@ -52,7 +52,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: Villa)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: Villa)");
             }
         }while (flag);
         return name;
@@ -65,7 +65,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: House)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: House)");
             }
         }while (flag);
         return name;
@@ -78,7 +78,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: Room)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: Room)");
             }
         }while (flag);
         return name;
@@ -91,7 +91,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (> 30 m2)");
+                System.out.println("Not in accordance with the rules, please enter here again (> 30 m2)");
             }
         }while (flag);
         return useArea;
@@ -104,7 +104,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (>0)");
+                System.out.println("Not in accordance with the rules, please enter here again (>0)");
             }
         }while (flag);
         return numb;
@@ -117,7 +117,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (>0 & <20)");
+                System.out.println("Not in accordance with the rules, please enter here again (>0 & <20)");
             }
         }while (flag);
         return numb;
@@ -130,7 +130,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: 1234)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: 1234)");
             }
         }while (flag);
         return id;
@@ -143,7 +143,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: 123456)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: 123456)");
             }
         }while (flag);
         return id;
@@ -156,7 +156,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (VD: 0123456789)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: 0123456789)");
             }
         }while (flag);
         return numb;
@@ -169,7 +169,7 @@ public class Validate {
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Sai quy tắc, mời nhập lại (dd/mm/YYYY ---- >18 & <100)");
+                System.out.println("Not in accordance with the rules, please enter here again (dd/mm/YYYY ---- >18 & <100)");
             }
         }while (flag);
         return birthday;
@@ -181,7 +181,7 @@ public class Validate {
             if(RegEx.checkNamePerson(name)){
                 flag = false;
             }else {
-                System.out.println("Sai quy tắc, mời nhập lại (VD: Do Thanh Nhan)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: Do Thanh Nhan)");
                 flag = true;
             }
         }while (flag);

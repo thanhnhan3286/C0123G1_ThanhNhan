@@ -83,33 +83,37 @@ public class CustomerServiceImpl implements ICustomerService {
                 System.out.println("Customer ID is not already in the system, please enter here again: ");
             }
         } while (!flag);
-        System.out.print("Nhập tên: ");
+        System.out.print("Enter the customer name: ");
         String fullName = sc.nextLine();
-        System.out.print("Nhập ngày sinh: ");
+        System.out.print("Enter the birthday: ");
         String birirthday = sc.nextLine();
         String gender = getGender();
-        System.out.print("Nhập số CMND: ");
+        System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
             numberOfIdCard = sc.nextLine();
             if (checkNumberOfIdCardEdit(numberOfIdCard)) {
                 flag = true;
-                System.out.println("Số CMND đã tồn tại, mời nhập lại");
+                System.out.println("The identity card number is already in the system, please enter here again");
             }
         } while (flag);
-        System.out.print("Nhập số điện thoại: ");
+        System.out.print("Enter phone number: ");
         String numberPhone = sc.nextLine();
-        System.out.print("Nhập Email: ");
+        System.out.print("Enter Email: ");
         String email = sc.nextLine();
         String customerLevel = getCustomerLevel();
-        System.out.print("Nhập địa chỉ: ");
+        System.out.print("Enter address: ");
         String address = sc.nextLine();
         customer = new Customer(customerId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
                 email,customerLevel,address);
-        customerList.add(customer);
+        for (int i = 0; i < customerList.size(); i++) {
+            if (Objects.equals(customerList.get(i).getId(), customerId)) {
+                customerList.set(i, customer);
+            }
+        }
         save();
-        System.out.println("Đã thêm thành công");
+        System.out.println("Edited!!!");
     }
 
     @Override
@@ -121,24 +125,25 @@ public class CustomerServiceImpl implements ICustomerService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Chọn giới tính: " +
-                    "\n1. Nam" +
-                    "\n2. Nữ" +
-                    "\n3. Khác" +
-                    "\nNhập lựa chọn");
+            System.out.print("Choose the gender: " +
+                    "\n1. Male" +
+                    "\n2. Female" +
+                    "\n3. Other" +
+                    "\nEnter selection: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
-                    gender = "Nam";
+                    gender = "Male";
                     break;
                 case "2":
-                    gender = "Nữ";
+                    gender = "Female";
                     break;
                 case "3":
-                    System.out.println("Nhập giới tính");
+                    System.out.print("Enter gender: ");
                     gender = sc.nextLine();
                     break;
                 default:
+                    System.out.print("Enter selection 1->3, please enter here again: ");
                     flag = true;
             }
         } while (flag);
@@ -149,13 +154,13 @@ public class CustomerServiceImpl implements ICustomerService {
         boolean flag;
         do {
             flag = false;
-            System.out.println("Chọn loại khách hàng: " +
+            System.out.println("Choose the customer level: " +
                     "\n1. Diamond" +
                     "\n2. Platinium" +
                     "\n3. Gold" +
                     "\n4. Sliver" +
                     "\n5. Member" +
-                    "\nNhập lựa chọn");
+                    "\nEnter selection here: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -174,6 +179,7 @@ public class CustomerServiceImpl implements ICustomerService {
                     level = "Member";
                     break;
                 default:
+                    System.out.print("Enter selection 1->5, please enter here again: ");
                     flag = true;
             }
         } while (flag);
@@ -200,19 +206,6 @@ public class CustomerServiceImpl implements ICustomerService {
             }
         }
         if (count != 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public static boolean checkIdEdit(String id) {
-        int count = 0;
-        for (int i = 0; i < customerList.size(); i++) {
-            if (Objects.equals(customerList.get(i).getId(), id)) {
-                count++;
-            }
-        }
-        if (count >= 1) {
             return true;
         } else {
             return false;
