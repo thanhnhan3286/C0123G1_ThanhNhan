@@ -5,9 +5,9 @@ import case_study_furama_resort_module_2.util.read_and_write.ReadAndWriteCustome
 
 import java.util.List;
 
-public class CustomerRepo implements ICustomerRepo{
+public class CustomerRepoImpl implements ICustomerRepo{
     private static final String PATH_FILE_CUSTOMER = "src/case_study_furama_resort_module_2/data/customer.csv";
-    static List<Customer> customerList = ReadAndWriteCustomer.readFile(PATH_FILE_CUSTOMER);
+    List<Customer> customerList = ReadAndWriteCustomer.readFile(PATH_FILE_CUSTOMER);
     @Override
     public List<Customer> display() {
         return customerList;

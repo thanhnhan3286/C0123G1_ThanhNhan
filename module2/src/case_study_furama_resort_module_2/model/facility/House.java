@@ -31,12 +31,13 @@ public class House extends Facility {
 
     @Override
     public String toString() {
-        return "House{" + "id='"+getId()+", serviceName='" + getServiceName() +
+        return "House{" + "id=" + getId() + ", serviceName=" + getServiceName() +
                 ", usableArea=" + getUsableArea() +
                 ", rentalCosts=" + getRentalCosts() +
                 ", maximumPeople=" + getMaximumPeople() +
-                ", rentalType='" + getRentalType() +
-                "roomStandard='" + roomStandard +
+                ", rentalType=" + getRentalType() +
+                ", roomStandard=3" +
+                "" + roomStandard +
                 ", numberOfFloors=" + numberOfFloors +
                 '}';
     }

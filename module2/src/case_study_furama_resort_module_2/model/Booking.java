@@ -1,6 +1,6 @@
 package case_study_furama_resort_module_2.model;
 
-public class Booking {
+public class Booking implements Comparable<Booking>{
     private String bookingId;
     private String startDay;
     private String endDay;
@@ -11,7 +11,8 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(String bookingId, String startDay, String endDay, String customerId, String serviceName, String serviceType) {
+    public Booking(String bookingId, String startDay, String endDay, String customerId,
+                   String serviceName, String serviceType) {
         this.bookingId = bookingId;
         this.startDay = startDay;
         this.endDay = endDay;
@@ -30,6 +31,12 @@ public class Booking {
                 ", serviceName='" + serviceName + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
+    }
+
+    public String getInfoToCSV() {
+        return bookingId + "," + startDay +
+                "," + endDay + "," + customerId +
+                "," + serviceName + "," + serviceType;
     }
 
     public String getBookingId() {
@@ -78,5 +85,10 @@ public class Booking {
 
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        return o.getStartDay().compareTo(this.getStartDay());
     }
 }

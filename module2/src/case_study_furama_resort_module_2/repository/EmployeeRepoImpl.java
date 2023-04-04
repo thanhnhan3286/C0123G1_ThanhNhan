@@ -5,7 +5,7 @@ import case_study_furama_resort_module_2.util.read_and_write.ReadAndWriteEmploye
 
 import java.util.List;
 
-public class EmployeeRepo implements IEployeeRepo {
+public class EmployeeRepoImpl implements IEployeeRepo {
     private static final String PATH_FILE_EMPLOYEE = "src/case_study_furama_resort_module_2/data/employee.csv";
     static List<Employee> employeeList = ReadAndWriteEmployee.readFile(PATH_FILE_EMPLOYEE);
     @Override

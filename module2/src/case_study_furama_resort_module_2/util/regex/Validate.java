@@ -47,12 +47,13 @@ public class Validate {
     public static String checkServiceNameVilla(){
         String name = "";
         do{
+            System.out.println(" EX: Villa01 ");
             name = sc.nextLine();
             if(RegEx.checkServiceNameVilla(name)){
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Not in accordance with the rules, please enter here again (Ex: Villa)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: Villa01)");
             }
         }while (flag);
         return name;
@@ -60,12 +61,13 @@ public class Validate {
     public static String checkServiceNameHouse(){
         String name = "";
         do{
+            System.out.println(" EX: House01 ");
             name = sc.nextLine();
             if(RegEx.checkServiceNameHouse(name)){
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Not in accordance with the rules, please enter here again (Ex: House)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: House01)");
             }
         }while (flag);
         return name;
@@ -73,12 +75,13 @@ public class Validate {
     public static String checkServiceNameRoom(){
         String name = "";
         do{
+            System.out.println(" EX: Room01 ");
             name = sc.nextLine();
             if(RegEx.checkServiceNameRoom(name)){
                 flag = false;
             }else {
                 flag = true;
-                System.out.println("Not in accordance with the rules, please enter here again (Ex: Room)");
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: Room01)");
             }
         }while (flag);
         return name;
@@ -186,5 +189,33 @@ public class Validate {
             }
         }while (flag);
         return name;
+    }
+    public static String checkEmail(){
+        String email = "";
+        do{
+            System.out.println("(Ex: abcd@gmail.com)");
+            email = sc.nextLine();
+            if(RegEx.checkIdEmail(email)){
+                flag = false;
+            }else {
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: abcd@gmail.com)");
+                flag = true;
+            }
+        }while (flag);
+        return email;
+    }
+    public static String checkDayBooking(){
+        String day = "";
+        do{
+            System.out.println("(Ex: 01/01/2023)");
+            day = sc.nextLine();
+            if(RegEx.checkDay(day)){
+                flag = false;
+            }else {
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: 01/01/2023)");
+                flag = true;
+            }
+        }while (flag);
+        return day;
     }
 }

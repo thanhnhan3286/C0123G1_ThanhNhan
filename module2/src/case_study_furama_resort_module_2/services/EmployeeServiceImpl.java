@@ -1,7 +1,7 @@
 package case_study_furama_resort_module_2.services;
 
 import case_study_furama_resort_module_2.model.person.Employee;
-import case_study_furama_resort_module_2.repository.EmployeeRepo;
+import case_study_furama_resort_module_2.repository.EmployeeRepoImpl;
 import case_study_furama_resort_module_2.util.regex.Validate;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     static Scanner sc = new Scanner(System.in);
-    static EmployeeRepo employeeRepo = new EmployeeRepo();
+    static EmployeeRepoImpl employeeRepo = new EmployeeRepoImpl();
     static Employee employee = new Employee();
     static List<Employee> employeeList = employeeRepo.display();
 
@@ -129,6 +129,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             return false;
         }
     }
+
     public static boolean checkIdEdit(String id) {
         int count = 0;
         for (int i = 0; i < employeeList.size(); i++) {
@@ -203,7 +204,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.print("Enter phone number: ");
         String numberPhone = Validate.checkPhoneNumber();
         System.out.print("Enter Email: ");
-        String email = sc.nextLine();
+        String email = Validate.checkEmail();
         String level = getLevel();
         String position = getPosition();
         System.out.print("Enter the salary: ");
@@ -261,7 +262,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.print("Enter phone number: ");
         String numberPhone = sc.nextLine();
         System.out.print("Enter Email: ");
-        String email = sc.nextLine();
+        String email = Validate.checkEmail();
         String level = getLevel();
         String position = getPosition();
         System.out.print("Enter the salary: ");

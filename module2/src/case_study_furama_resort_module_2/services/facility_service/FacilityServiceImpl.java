@@ -1,22 +1,47 @@
 package case_study_furama_resort_module_2.services.facility_service;
 
 import case_study_furama_resort_module_2.model.facility.Facility;
+import case_study_furama_resort_module_2.model.facility.House;
+import case_study_furama_resort_module_2.model.facility.Room;
+import case_study_furama_resort_module_2.model.facility.Villa;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.function.DoubleToIntFunction;
+
+import static case_study_furama_resort_module_2.services.facility_service.HouseService.houseMap;
+import static case_study_furama_resort_module_2.services.facility_service.RoomService.roomMap;
+import static case_study_furama_resort_module_2.services.facility_service.VillaService.villaMap;
 
 public class FacilityServiceImpl implements IFacilityService {
     static Scanner sc = new Scanner(System.in);
-    static Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
+    static Map<Facility,Integer> facilityMaintenanceMap = new LinkedHashMap<>();
     static IVillaService villaService = new VillaService();
     static IHouseService houseService = new HouseService();
     static IRoomService roomService = new RoomService();
 
     @Override
     public void displayMaintenance() {
-
-
+        System.out.println("________________________________FACILITY MAINTENANCE LIST_____________________________");
+        System.out.println("-----------------------Villa Maintenance List-------------------");
+        for (Map.Entry<Villa, Integer> villa:villaMap.entrySet()){
+            if(villa.getValue()>=5){
+                System.out.println(villa.getKey() + ", "+villa.getValue()+" uses");
+            }
+        }
+        System.out.println("-----------------------House Maintenance List-------------------");
+        for (Map.Entry<House, Integer> house:houseMap.entrySet()){
+            if(house.getValue()>=5){
+                System.out.println(house.getKey() + ", "+house.getValue()+" uses");
+            }
+        }
+        System.out.println("-----------------------Room Maintenance List---------------------");
+        for (Map.Entry<Room, Integer> room:roomMap.entrySet()){
+            if(room.getValue()>=5){
+                System.out.println(room.getKey() + ", "+room.getValue()+" uses");
+            }
+        }
     }
 
     @Override

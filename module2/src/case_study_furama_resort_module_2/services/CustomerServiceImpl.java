@@ -1,7 +1,8 @@
 package case_study_furama_resort_module_2.services;
 
 import case_study_furama_resort_module_2.model.person.Customer;
-import case_study_furama_resort_module_2.repository.CustomerRepo;
+import case_study_furama_resort_module_2.repository.CustomerRepoImpl;
+import case_study_furama_resort_module_2.util.regex.Validate;
 
 import java.util.List;
 import java.util.Objects;
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class CustomerServiceImpl implements ICustomerService {
     static Scanner sc = new Scanner(System.in);
-    static CustomerRepo customerRepo = new CustomerRepo();
+    static CustomerRepoImpl customerRepo = new CustomerRepoImpl();
     static Customer customer = new Customer();
     static List<Customer> customerList = customerRepo.display();
 
@@ -50,7 +51,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter address: ");
         String address = sc.nextLine();
         customer = new Customer(customerId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
-                email,customerLevel,address);
+                email, customerLevel, address);
         customerList.add(customer);
         save();
         System.out.println("Added!!!");
@@ -58,6 +59,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void display() {
+        System.out.println("------------------------ CUSTOMER LIST -------------------------");
         if (customerList.size() <= 0) {
             System.out.println("Empty list!!!");
         } else {
@@ -79,7 +81,7 @@ public class CustomerServiceImpl implements ICustomerService {
             if (checkId(customerId)) {
                 flag = true;
                 System.out.println("Customer ID is already in the system, edit here: ");
-            }else{
+            } else {
                 System.out.println("Customer ID is not already in the system, please enter here again: ");
             }
         } while (!flag);
@@ -101,12 +103,12 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter phone number: ");
         String numberPhone = sc.nextLine();
         System.out.print("Enter Email: ");
-        String email = sc.nextLine();
+        String email = Validate.checkEmail();
         String customerLevel = getCustomerLevel();
         System.out.print("Enter address: ");
         String address = sc.nextLine();
         customer = new Customer(customerId, fullName, birirthday, gender, numberOfIdCard, numberPhone,
-                email,customerLevel,address);
+                email, customerLevel, address);
         for (int i = 0; i < customerList.size(); i++) {
             if (Objects.equals(customerList.get(i).getId(), customerId)) {
                 customerList.set(i, customer);
@@ -120,6 +122,7 @@ public class CustomerServiceImpl implements ICustomerService {
     public void save() {
         customerRepo.save(customerList);
     }
+
     public static String getGender() {
         String gender = "";
         boolean flag;
@@ -149,6 +152,7 @@ public class CustomerServiceImpl implements ICustomerService {
         } while (flag);
         return gender;
     }
+
     public static String getCustomerLevel() {
         String level = "";
         boolean flag;
@@ -185,6 +189,7 @@ public class CustomerServiceImpl implements ICustomerService {
         } while (flag);
         return level;
     }
+
     public static boolean checkId(String id) {
         int count = 0;
         for (int i = 0; i < customerList.size(); i++) {
@@ -198,6 +203,7 @@ public class CustomerServiceImpl implements ICustomerService {
             return false;
         }
     }
+
     public static boolean checkNumberOfIdCard(String id) {
         int count = 0;
         for (int i = 0; i < customerList.size(); i++) {
@@ -211,6 +217,7 @@ public class CustomerServiceImpl implements ICustomerService {
             return false;
         }
     }
+
     public static boolean checkNumberOfIdCardEdit(String id) {
         int count = 0;
         for (int i = 0; i < customerList.size(); i++) {

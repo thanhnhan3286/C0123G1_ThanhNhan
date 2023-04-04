@@ -24,28 +24,26 @@ public class ReadAndWriteVilla {
                     String[] str = line.split(",");
                     villaList = new Villa(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7]);
                     typeOfUsed = Integer.parseInt(str[8]);
-                    villaMap.put(villaList,typeOfUsed);
+                    villaMap.put(villaList, typeOfUsed);
                 }
                 bufferedReader.close();
                 fileReader.close();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return villaMap;
     }
 
-    public static void writeFile(String pathFileVilla, Map<Villa,Integer> villaMap) {
+    public static void writeFile(String pathFileVilla, Map<Villa, Integer> villaMap) {
         File file = new File(pathFileVilla);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {
             fileWriter = new FileWriter(file);
             bufferedWriter = new BufferedWriter(fileWriter);
-            for (Map.Entry<Villa,Integer> entry:villaMap.entrySet()) {
-                bufferedWriter.write(entry.getKey().getInfoToCSV() + ","+entry.getValue());
+            for (Map.Entry<Villa, Integer> entry : villaMap.entrySet()) {
+                bufferedWriter.write(entry.getKey().getInfoToCSV() + "," + entry.getValue());
                 bufferedWriter.newLine();
             }
         } catch (IOException e) {

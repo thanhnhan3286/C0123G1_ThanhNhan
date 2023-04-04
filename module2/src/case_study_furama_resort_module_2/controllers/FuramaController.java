@@ -47,7 +47,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 0->5 at here!!!");
+                    System.out.print("Please enter selection 0->5 at here:  ");
             }
         } while (flag);
     }
@@ -55,11 +55,12 @@ public class FuramaController {
     public static void employeeManagement() {
         boolean flag = true;
         do {
-            System.out.println("Employee Management:\n" +
+            System.out.print("Employee Management:\n" +
                     "1\tDisplay list employees\n" +
                     "2\tAdd new employee\n" +
                     "3\tEdit employee`\n" +
-                    "4\tReturn main menu");
+                    "4\tReturn main menu" +
+                    "\nEnter selection here:  ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -76,7 +77,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 1 -> 4 at here!!!");
+                    System.out.print("Please enter selection 1 -> 4 at here:  ");
             }
         } while (flag);
     }
@@ -84,11 +85,12 @@ public class FuramaController {
     public static void customerManagement() {
         boolean flag = true;
         do {
-            System.out.println("Customer Management:\n" +
+            System.out.print("Customer Management:\n" +
                     "1.\tDisplay list customers\n" +
                     "2.\tAdd new customer\n" +
                     "3.\tEdit customer\n" +
-                    "4.\tReturn main menu\n");
+                    "4.\tReturn main menu\n" +
+                    "Enter selection here: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -105,7 +107,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 1 -> 4 at here!!!");
+                    System.out.println("Please enter selection 1 -> 4 at here:  ");
             }
         } while (flag);
     }
@@ -113,11 +115,12 @@ public class FuramaController {
     public static void facilityManagement() {
         boolean flag = true;
         do {
-            System.out.println("Facility Management: \n" +
+            System.out.print("Facility Management: \n" +
                     "1\tDisplay list facility\n" +
                     "2\tAdd new facility\n" +
                     "3\tDisplay list facility maintenance\n" +
-                    "4\tReturn main menu\n");
+                    "4\tReturn main menu\n" +
+                    "Enter selection here:  ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -134,7 +137,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 1 -> 4 at here!!!");
+                    System.out.print("Please enter selection 1 -> 4 at here:  ");
             }
         } while (flag);
     }
@@ -142,13 +145,14 @@ public class FuramaController {
     public static void bookingManagement() {
         boolean flag = true;
         do {
-            System.out.println("Booking Management:\n" +
+            System.out.print("Booking Management:\n" +
                     "1.\tAdd new booking\n" +
                     "2.\tDisplay list booking\n" +
                     "3.\tCreate new contract\n" +
                     "4.\tDisplay list contracts\n" +
                     "5.\tEdit contracts\n" +
-                    "6.\tReturn main menu\n");
+                    "6.\tReturn main menu\n" +
+                    "Enter selection here: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -172,7 +176,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 1 -> 6 at here!!!");
+                    System.out.print("Please enter selection 1 -> 6 at here:  ");
             }
         } while (flag);
     }
@@ -180,10 +184,11 @@ public class FuramaController {
     public static void promotionManagement() {
         boolean flag = true;
         do {
-            System.out.println("Promotion Management:\n" +
+            System.out.print("Promotion Management:\n" +
                     "1.\tDisplay list customers use service\n" +
                     "2.\tDisplay list customers get voucher\n" +
-                    "3.\tReturn main menu\n");
+                    "3.\tReturn main menu\n" +
+                    "Enter selection here: ");
             String choose = sc.nextLine();
             switch (choose) {
                 case "1":
@@ -196,7 +201,7 @@ public class FuramaController {
                     flag = false;
                     break;
                 default:
-                    System.out.println("Please enter selection 1 -> 3 at here!!!");
+                    System.out.print("Please enter selection 1 -> 3 at here:  ");
             }
         } while (flag);
     }
