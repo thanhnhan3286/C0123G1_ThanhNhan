@@ -11,10 +11,11 @@ public class RegEx {
     private static final String REGEX_POSITIVE_INTEGER = "^([1-9]\\d*)$";
     private static final String REGEX_MAX_PEOPLE = "^((0[1-9])|(1[0-9])|20)$";
     private static final String REGEX_BIRTHDAY = "^((0[1-9])|([12][0-9])|3[01])\\/((0[1-9])|1[0-2])\\/((19((2[4-9])|([3-9][0-9])))|200[0-5])$";
-    private static final String REGEX_DAY_BOOKING = "^((0[1-9])|([12][0-9])|3[01])\\/((0[1-9])|1[0-2])\\/(202[3-9])|(20[3-9]\\d)|(2[1-9]\\d{2}))$";
+    private static final String REGEX_DAY_BOOKING = "^((0[1-9])|([12][0-9])|3[01])\\/((0[1-9])|1[0-2])\\/(202[3-9])|(20[3-9]\\d)|(2[1-9]\\d{2})$";
     private static final String REGEX_PHONE_NUMBER = "^0\\d{9}$";
     private static final String REGEX_ID_CARD = "^\\d{6,12}$";
     private static final String REGEX_ID_PERSON = "^\\d+$";
+    private static final String REGEX_CONTRACT_NUMBER = "^\\d+$";
     private static final String REGEX_NAME_PERSON = "^[A-Z][a-z]*(\\s[A-Z][a-z]*)+$";
     private static final String REGEX_EMAIL = "^[a-z]+\\@[a-z]{3,5}\\.[a-z]{2,3}+$";
 
@@ -31,6 +32,9 @@ public class RegEx {
     }
     public static boolean checkIdPerson(String str) {
         return str.matches(REGEX_ID_PERSON);
+    }
+    public static boolean checkContractNumb(String str) {
+        return str.matches(REGEX_CONTRACT_NUMBER);
     }
     public static boolean checkNamePerson(String str) {
         return str.matches(REGEX_NAME_PERSON);

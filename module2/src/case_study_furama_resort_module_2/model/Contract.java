@@ -29,6 +29,11 @@ public class Contract {
                 '}';
     }
 
+    public String getInforToCSV() {
+        return contractNumber + "," + bookingId + "," +
+                deposit + "," + totalPayment + "," + customerId;
+    }
+
     public String getContractNumber() {
         return contractNumber;
     }

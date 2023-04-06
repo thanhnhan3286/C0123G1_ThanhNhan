@@ -22,31 +22,31 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter the customer ID: ");
         do {
             flag = false;
-            customerId = sc.nextLine();
+            customerId = Validate.checkIdPerson();
             if (checkId(customerId)) {
                 flag = true;
                 System.out.print("Customer ID is already in the system, please enter again here: ");
             }
         } while (flag);
         System.out.print("Enter the customer name: ");
-        String fullName = sc.nextLine();
+        String fullName = Validate.checkNamePerson();
         System.out.print("Enter the birthday: ");
-        String birirthday = sc.nextLine();
+        String birirthday = Validate.checkBirthday();
         String gender = getGender();
         System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
-            numberOfIdCard = sc.nextLine();
+            numberOfIdCard = Validate.checkIdCard();
             if (checkNumberOfIdCard(numberOfIdCard)) {
                 flag = true;
                 System.out.print("The identity card number is already in the system, please enter here again: ");
             }
         } while (flag);
         System.out.print("Enter phone number: ");
-        String numberPhone = sc.nextLine();
+        String numberPhone = Validate.checkPhoneNumber();
         System.out.print("Enter Email: ");
-        String email = sc.nextLine();
+        String email = Validate.checkEmail();
         String customerLevel = getCustomerLevel();
         System.out.print("Enter address: ");
         String address = sc.nextLine();
@@ -77,7 +77,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter the customer ID need edit: ");
         do {
             flag = false;
-            customerId = sc.nextLine();
+            customerId = Validate.checkIdPerson();
             if (checkId(customerId)) {
                 flag = true;
                 System.out.println("Customer ID is already in the system, edit here: ");
@@ -86,22 +86,22 @@ public class CustomerServiceImpl implements ICustomerService {
             }
         } while (!flag);
         System.out.print("Enter the customer name: ");
-        String fullName = sc.nextLine();
+        String fullName = Validate.checkNamePerson();
         System.out.print("Enter the birthday: ");
-        String birirthday = sc.nextLine();
+        String birirthday = Validate.checkBirthday();
         String gender = getGender();
         System.out.print("Enter identity card number: ");
         String numberOfIdCard;
         do {
             flag = false;
-            numberOfIdCard = sc.nextLine();
+            numberOfIdCard = Validate.checkIdCard();
             if (checkNumberOfIdCardEdit(numberOfIdCard)) {
                 flag = true;
                 System.out.println("The identity card number is already in the system, please enter here again");
             }
         } while (flag);
         System.out.print("Enter phone number: ");
-        String numberPhone = sc.nextLine();
+        String numberPhone = Validate.checkPhoneNumber();
         System.out.print("Enter Email: ");
         String email = Validate.checkEmail();
         String customerLevel = getCustomerLevel();

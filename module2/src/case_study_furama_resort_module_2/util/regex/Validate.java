@@ -138,6 +138,19 @@ public class Validate {
         }while (flag);
         return id;
     }
+    public static String checkServiceNumb(){
+        String id = "";
+        do{
+            id = sc.nextLine();
+            if(RegEx.checkContractNumb(id)){
+                flag = false;
+            }else {
+                flag = true;
+                System.out.println("Not in accordance with the rules, please enter here again (Ex: 1234)");
+            }
+        }while (flag);
+        return id;
+    }
     public static String checkIdCard(){
         String id = "";
         do{
