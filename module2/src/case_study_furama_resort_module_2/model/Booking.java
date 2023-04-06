@@ -90,18 +90,6 @@ public class Booking implements Comparable<Booking>{
         this.serviceType = serviceType;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Booking booking = (Booking) o;
-//        return bookingId.equals(booking.bookingId);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(bookingId);
-//    }
 
     @Override
     public int compareTo(Booking o) {
@@ -114,6 +102,4 @@ public class Booking implements Comparable<Booking>{
         Date startDateObj = new Date(o.startDay);
         return startDate.after(startDateObj) ? 1 : -1;
     }
-//        return this.getStartDay().compareTo(o.getStartDay());
-//    }
 }
